@@ -1,0 +1,53 @@
+---
+title: "Моя информационная панель"
+author: "[Автор]"
+format: dashboard
+---
+
+## Row {height="20%"}
+```{r}
+#| content: valuebox
+#| title: "Значения"
+
+list(
+  icon = "chat",
+  color = "warning",
+  value = 126
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Информация"
+
+2
+```
+
+```{r}
+#| include: false
+value = 12
+```
+
+::: {.valuebox icon="apple" color="success"}
+Съедено яблок
+
+`{r} value`
+:::
+
+## Row
+```{r}
+#| title: Пример графика
+library(tinyplot)
+plt(
+  Sepal.Length ~ Petal.Length | Species, 
+  data = iris,
+  palette = "dark", pch = 16,
+  grid = TRUE, frame = FALSE
+)
+```
+
+```{r}
+#| title: Таблица
+library(reactable)
+reactable(iris[1:10, ])
+```
